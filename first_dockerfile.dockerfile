@@ -5,7 +5,7 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY JsonCompare.py /app/JsonCompare.py
+COPY hello_clock.py /app/hello_clock.py
 
 # Switch to root user to install dependencies and set permissions
 USER root
@@ -14,10 +14,10 @@ USER root
 RUN pip install pendulum
 
 # Set permissions for the script to be executable by the nobody user
-RUN chmod 755 /app/JsonCompare.py
+RUN chmod 755 /app/hello_clock.py
 
 # Switch back to the nobody user
 USER nobody
 
-# Run JsonCompare.py when the container launches
-CMD ["python", "JsonCompare.py"]
+# Run hello_clock.py when the container launches
+CMD ["python", "hello_clock.py"]
